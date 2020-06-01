@@ -8,17 +8,9 @@ module.exports = {
         const [count] = await conn('incidents').count();
 
         const incidents = await conn('incidents')
-            .join('ongs', 'ongs.id', '=', 'ong_id')
             .limit(5)
             .offset((page - 1) * 5)
-            .select([
-                'incidents.*',
-                'ongs.name',
-                'ongs.email',
-                'ongs.whatsapp',
-                'ongs.city',
-                'ongs.uf'
-            ]);
+            .select('*');
 
         res.header('X-Total-Count', count['count(*)']);
 
@@ -64,7 +56,7 @@ module.exports = {
             return res.status(400).json({error: 'You have to login to create an Incident'});
         }
 
-        const incident = conn('incidents')
+        const incident = await conn('incidents')
             .where('id', id)
             .select('ong_id')
             .first();
