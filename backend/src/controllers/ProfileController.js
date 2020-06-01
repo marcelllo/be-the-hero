@@ -1,4 +1,4 @@
-const conn = require('../database/Connection');
+const conn = require("../database/Connection");
 
 module.exports = {
   async index(req, res) {
@@ -13,8 +13,15 @@ module.exports = {
     const incidents = await conn("incidents")
       .join("ongs", "ongs.id", "=", "ong_id")
       .where("ong_id", ong_id)
-      .select("*");
+      .select([
+        "incidents.*",
+        "ongs.name",
+        "ongs.email",
+        "ongs.whatsapp",
+        "ongs.city",
+        "ongs.uf",
+      ]);
 
-      return res.json(incidents);
+    return res.json(incidents);
   },
 };
