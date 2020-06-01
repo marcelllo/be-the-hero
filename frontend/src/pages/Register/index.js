@@ -56,6 +56,7 @@ export default function Register() {
             voltar
           </Link>
         </section>
+        
         <form onSubmit={handleRegister}>
           <input
             type="text"

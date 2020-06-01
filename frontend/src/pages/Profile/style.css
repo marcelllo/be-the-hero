@@ -85,3 +85,9 @@
     line-height: 21px;
     font-size: 16px;
 }
+
+@media screen and (max-width: 730px) {
+    .profile-container ul {
+        grid-template-columns: 1fr;
+    }
+}

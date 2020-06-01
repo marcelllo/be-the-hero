@@ -52,3 +52,10 @@
 .register-container .content form .input-group input + input {
     margin-left: 8px;
 }
+
+@media screen and (max-width: 670px) {
+    .register-container .content {
+        padding: 20px;
+        flex-direction: column;
+    }
+}
