@@ -11,4 +11,4 @@ $ npm start
 #
 Nome: Marcelo Santos
 
-E-mail: mns.etb@gmail.com
+E-mail: marcello.santos@gmail.com
